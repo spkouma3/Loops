@@ -13,18 +13,18 @@ from funcStore import *
 # 6200/27=229, but here we want everything in terms of mers
 rLong=6200 
 
-
-
 # number of single-mers in a arbitrary mer, chain length "r"
-rArb=100
-
-
+rArb=6200
 
 # number of single-mers in a arbitrary mer, chain length "r"
 rShort=27
 
-slp=2
-#na is the number of chains so to get a value we must divide nsurf/r and then make it a multiple
+rSmall=20
+
+# number of mers in a loop
+slp=10
+
+#na is the number of chains on the surface, so to get a value we must divide nsurf/r and then make it a multiple
 #for longs 27 is 4 more than the surface pancake max...
 # n=27
 
@@ -33,15 +33,17 @@ naNew=na(_r=rLong)+2
 #total chains
 n=30
 
-nvol=nsurf
+nvol=2*nsurf
 
 
 dQArr=[]
+logwarr=[]
 
 
-
-for k in range(naNew,naNew+4):
-    dQArr.append(DeltaQlog(k,_r=rLong,_slp=slp,_nvol=nvol,_n=n))
+for k in range(23,100):
+    print(k)
+    dQArr.append(DeltaQlog(k,_r=rArb,_slp=slp,_nvol=nvol,_n=n))
+    
 
 # In[]
 # n_0=n_a(r_Long)+2
